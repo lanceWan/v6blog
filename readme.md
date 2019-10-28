@@ -18,7 +18,7 @@ cd v6blog
 
 composer install
 ```
-> 如果安装缓慢，推荐式样中国镜像：[阿里云 Composer 全量镜像](https://developer.aliyun.com/composer?spm=5176.12825654.h2v3icoap.795.e9392c4a4QxFCB&aly_as=4lKC45sg)
+> 如果安装缓慢，推荐使用中国镜像：[阿里云 Composer 全量镜像](https://developer.aliyun.com/composer?spm=5176.12825654.h2v3icoap.795.e9392c4a4QxFCB&aly_as=4lKC45sg)
 
 配置 `.env` 文件：
 ```
