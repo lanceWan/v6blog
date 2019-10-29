@@ -35,6 +35,11 @@ DB_USERNAME=homestead   # 数据库用户名
 DB_PASSWORD=secret      # 数据库密码
 ```
 
+生成key：
+```
+php artisan key:generate
+```
+
 迁移数据：
 ```
 php artisan migrate --seed
