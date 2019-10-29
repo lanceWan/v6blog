@@ -36,6 +36,12 @@ class DatabaseSeeder extends Seeder
             });
         });
 
-        factory(Setting::class)->create();
+        $settings = factory(Setting::class)->make()->toArray();
+        collect($settings)->each(function($item, $key){
+            Setting::updateOrCreate(
+                ['key' => $key],
+                ['content' => $item]
+            );
+        });
     }
 }
