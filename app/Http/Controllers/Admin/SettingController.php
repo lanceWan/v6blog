@@ -42,6 +42,8 @@ class SettingController extends Controller
                     ['content' => $item]
                 );
             });
+            // 删除缓存
+            cache()->forget('settings');
             flash('修改成功！')->success();
         }
 
