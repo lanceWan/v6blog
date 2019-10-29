@@ -58,7 +58,7 @@
             <hr>
             <h4 class="title">最新福利</h4>
             <p class="description">
-                @if (isset($settings['adv_image']))
+                @if (isset($settings['adv_image']) && $settings['adv_image'])
                 <a href="{{$settings['adv_url'] ?? '/'}}">
                     <img src="{{asset('storage/'.$settings['adv_image'])}}" class="img-raised rounded img-fluid">
                 </a>
