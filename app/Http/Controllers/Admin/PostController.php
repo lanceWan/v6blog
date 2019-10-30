@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category:id,name')->orderBy('created_at', 'desc')->paginate(10);
+        $posts = Post::with('category:id,name')->latest()->paginate(10);
         return view('admin.post.index', compact('posts'));
     }
 
@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::orderBy('created_at', 'desc')->get();
+        $categories = Category::latest()->get();
         return view('admin.post.create', compact('categories'));
     }
 
@@ -43,8 +43,6 @@ class PostController extends Controller
         $post = $request->all();
         // 用户ID
         $post['user_id'] = auth()->user()->id;
-        // 文章内容
-        $post['body'] = $post['editormd'];
         // 文章封面上传
         if ($request->hasFile('image')) {
             $post['image'] = $request->image->store('images');
@@ -92,7 +90,7 @@ class PostController extends Controller
         if (is_null($post)) {
             abort(404);
         }
-        $categories = Category::orderBy('created_at', 'desc')->get();
+        $categories = Category::latest()->get();
         return view('admin.post.edit', compact('post', 'categories'));
     }
 
@@ -106,8 +104,6 @@ class PostController extends Controller
     public function update(PostRequest $request, $id)
     {
         $post = $request->all();
-        // 文章内容
-        $post['body'] = $post['editormd'];
         // 文章封面上传
         if ($request->hasFile('image')) {
             $post['image'] = $request->image->store('images');

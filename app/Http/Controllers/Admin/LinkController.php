@@ -15,7 +15,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = Link::orderBy('created_at', 'desc')->paginate(10);
+        $links = Link::latest()->paginate(10);
         return view('admin.link.index', compact('links'));
     }
 

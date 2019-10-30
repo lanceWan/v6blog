@@ -28,7 +28,7 @@ class PostRequest extends FormRequest
             'title' => 'required',
             'tags' => 'required',
             'status' => 'required',
-            'editormd' => 'required',
+            'body' => 'required',
         ];
     }
 
@@ -46,7 +46,7 @@ class PostRequest extends FormRequest
             'title'  => '标题',
             'tags'  => '标签',
             'status'  => '状态',
-            'editormd'  => '文章内容',
+            'body'  => '文章内容',
         ];
     }
 }

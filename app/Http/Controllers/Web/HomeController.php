@@ -14,8 +14,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('category:id,name')->orderBy('created_at', 'desc')->paginate(6);
-        $links = Link::orderBy('created_at', 'desc')->get();
+        $posts = Post::with('category:id,name')->latest()->paginate(6);
+        $links = Link::latest()->get();
         return view('web.index', compact('posts', 'links'));
     }
 
@@ -58,8 +58,8 @@ class HomeController extends Controller
     public function postItem($id, $bool)
     {
         $attribute = $bool ? Tag::find($id) : Category::find($id);
-        $posts = optional($attribute)->posts()->orderBy('created_at', 'desc')->paginate(6);
-        $links = Link::orderBy('created_at', 'desc')->get();
+        $posts = optional($attribute)->posts()->latest()->paginate(6);
+        $links = Link::latest()->get();
         return view('web.index', compact('posts', 'links', 'attribute'));
     }
 }

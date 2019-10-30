@@ -73,7 +73,7 @@
                                     <span class="btn btn-rose btn-round btn-file">
                                         <span class="fileinput-new">选择图片</span>
                                         <span class="fileinput-exists">更换图片</span>
-                                        <input type="file" name="adv_image" value="">
+                                        <input type="file" name="adv_image" value="{{$settings['adv_image'] ?? ''}}">
                                     </span>
                                     <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i
                                             class="fa fa-times"></i> 移除</a>

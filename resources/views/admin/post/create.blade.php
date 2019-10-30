@@ -107,7 +107,7 @@
             <div class="col-md-8 card">
                 <div class="card-body">
                     <div id="editormd">
-                        <textarea name="editormd" form="postForm" style="display:none;"></textarea>
+                        <textarea name="body" form="postForm" style="display:none;">{{old('body')}}</textarea>
                     </div>
                     @include('markdown::encode',['editors'=>['editormd']])
                 </div>
