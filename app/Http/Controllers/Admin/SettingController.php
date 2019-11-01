@@ -42,12 +42,12 @@ class SettingController extends Controller
                     ['content' => $item]
                 );
             });
-            // 删除缓存
-            cache()->forget('settings');
             flash('修改成功！')->success();
         }
-
+        
         $settings = Setting::pluck('content', 'key')->all();
+        // 缓存
+        cache()->forever('settings', $settings);
         return $request->isMethod('POST') ? redirect()->route('admin.system', compact('settings')): view('admin.setting.system', compact('settings'));
     }
 }
